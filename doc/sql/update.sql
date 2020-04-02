@@ -73,3 +73,104 @@ insert  into `form_json`(`id`,`json_data`) values (1,'eJztXN1vG8cR/1eIC/pUVbi9b+
 
 -- 角色权限表修改
 ALTER TABLE `workflow_role` ADD COLUMN `role_permission` VARCHAR(1000) DEFAULT '' NOT NULL COMMENT '角色权限' AFTER `role_name`;
+
+-- 权限添加
+-- 用户管理
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES ('100000000000000001', '用户管理', 'menu', 'um', '0');
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES
+('100000000000000002', '用户管理-修改', 'button', 'uedit', '100000000000000001'),
+('100000000000000003', '用户管理-删除', 'button', 'ud', '100000000000000001'),
+('100000000000000004', '用户管理-密码重置', 'button', 'upr', '100000000000000001');
+
+
+-- 学校列表
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES ('100000000000000021', '学校列表', 'menu', 'xl', '0');
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES
+('100000000000000022', '学校列表-编辑', 'button', 'xedit', '100000000000000021'),
+('100000000000000023', '学校列表-删除', 'button', 'xd', '100000000000000021'),
+('100000000000000024', '学校列表-教师管理', 'button', 'xtm', '100000000000000021'),
+('100000000000000025', '学校列表-学生管理', 'button', 'xsm', '100000000000000021'),
+('100000000000000026', '学校列表-新增学校', 'button', 'xnx', '100000000000000021'),
+('100000000000000027', '学校列表-启用', 'button', 'xu', '100000000000000021'),
+('100000000000000028', '学校列表-禁用', 'button', 'xb', '100000000000000021'),
+('100000000000000029', '学校列表-批量删除', 'button', 'xds', '100000000000000021'),
+('100000000000000030', '学校列表-组织管理', 'button', 'xgm', '100000000000000021');
+
+-- 教师管理
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES
+('100000000000000241', '教师管理-编辑', 'button', 'tedit', '100000000000000024'),
+('100000000000000242', '教师管理-删除', 'button', 'td', '100000000000000024'),
+('100000000000000243', '教师管理-新增教师', 'button', 'tnt', '100000000000000024'),
+('100000000000000244', '教师管理-批量新增', 'button', 'tns', '100000000000000024'),
+('100000000000000245', '教师管理-批量删除', 'button', 'tds', '100000000000000024');
+
+
+-- 学生管理
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES
+('100000000000000251', '学生管理-编辑', 'button', 'sedit', '100000000000000025'),
+('100000000000000252', '学生管理-删除', 'button', 'sd', '100000000000000025'),
+('100000000000000253', '学生管理-新增学生', 'button', 'sns', '100000000000000025'),
+('100000000000000254', '学生管理-批量新增', 'button', 'snss', '100000000000000025'),
+('100000000000000255', '学生管理-批量删除', 'button', 'sds', '100000000000000025');
+
+
+-- 题目列表
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES ('100000000000000031', '题目列表', 'menu', 'ql', '0');
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES
+('100000000000000032', '题目列表-编辑', 'button', 'qedit', '100000000000000031'),
+('100000000000000033', '题目列表-删除', 'button', 'qd', '100000000000000031'),
+('100000000000000034', '题目列表-新增题目', 'button', 'qnq', '100000000000000031'),
+('100000000000000035', '题目列表-启用', 'button', 'qu', '100000000000000031'),
+('100000000000000036', '题目列表-禁用', 'button', 'qb', '100000000000000031'),
+('100000000000000037', '题目列表-批量删除', 'button', 'qds', '100000000000000031'),
+('100000000000000038', '题目列表-答案设置', 'button', 'qas', '100000000000000031');
+
+-- 题目类型
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES ('100000000000000041', '题目类型', 'menu', 'qt', '0');
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES
+('100000000000000042', '题目类型-编辑', 'button', 'qtedit', '100000000000000041'),
+('100000000000000043', '题目类型-删除', 'button', 'qtd', '100000000000000041'),
+('100000000000000044', '题目类型-新增类型', 'button', 'qtnq', '100000000000000041'),
+('100000000000000045', '题目类型-批量删除', 'button', 'qtds', '100000000000000041');
+
+-- 表单列表
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES ('100000000000000051', '表单列表', 'menu', 'bl', '0');
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES
+('100000000000000052', '表单列表-编辑', 'button', 'bedit', '100000000000000051'),
+('100000000000000053', '表单列表-删除', 'button', 'bd', '100000000000000051'),
+('100000000000000054', '表单列表-新增表单', 'button', 'bnb', '100000000000000051'),
+('100000000000000055', '表单列表-启用', 'button', 'bu', '100000000000000051'),
+('100000000000000056', '表单列表-禁用', 'button', 'bb', '100000000000000051'),
+('100000000000000057', '表单列表-批量删除', 'button', 'bds', '100000000000000051');
+
+-- 表单类型
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES ('100000000000000061', '表单类型', 'menu', 'bt', '0');
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES
+('100000000000000062', '表单类型-编辑', 'button', 'btedit', '100000000000000061'),
+('100000000000000063', '表单类型-删除', 'button', 'btd', '100000000000000061'),
+('100000000000000064', '表单类型-新增类型', 'button', 'btnb', '100000000000000061'),
+('100000000000000067', '表单类型-批量删除', 'button', 'btds', '100000000000000061');
+
+-- 管理员列表
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES ('100000000000000071', '管理员列表', 'menu', 'adl', '0');
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES
+('100000000000000072', '管理员列表-编辑', 'button', 'adedit', '100000000000000071'),
+('100000000000000073', '管理员列表-删除', 'button', 'add', '100000000000000071'),
+('100000000000000074', '管理员列表-新增管理员', 'button', 'adnb', '100000000000000071'),
+('100000000000000075', '管理员列表-启用', 'button', 'adu', '100000000000000071'),
+('100000000000000076', '管理员列表-禁用', 'button', 'adb', '100000000000000071'),
+('100000000000000077', '管理员列表-批量删除', 'button', 'adds', '100000000000000071');
+
+-- 角色列表
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES ('100000000000000081', '角色列表', 'menu', 'rl', '0');
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES
+('100000000000000082', '角色列表-编辑', 'button', 'redit', '100000000000000081'),
+('100000000000000083', '角色列表-删除', 'button', 'rd', '100000000000000081'),
+('100000000000000084', '角色列表-新增角色', 'button', 'rnb', '100000000000000081'),
+('100000000000000087', '角色列表-批量删除', 'button', 'rds', '100000000000000081');
+
+-- 权限配置
+INSERT INTO workflow_permission(permission_id, permission_name, resource_type, permission, parent_id) VALUES ('100000000000000091', '权限配置', 'menu', 'ps', '0');
+
+-- 角色
+INSERT INTO workflow_role(role_id, role_code, role_name, role_permission) VALUES ('100000000000000000', 'admin', '管理员', 'login,');
